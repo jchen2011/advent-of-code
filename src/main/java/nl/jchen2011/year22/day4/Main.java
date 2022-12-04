@@ -25,14 +25,10 @@ public class Main {
         int points = 0;
         for (String section : SECTIONS) {
             String[] parts = section.split(",");
-            String firstHalf = parts[0];
-            String secondHalf = parts[1];
+            String[] firstHalf = parts[0].split("-");
+            String[] secondHalf = parts[1].split("-");
 
-            String[] firstHalfParts = firstHalf.split("-");
-            String[] secondHalfParts = secondHalf.split("-");
-
-            points += part.equals("part1") ? calculateAmountOfOverlap(Integer.parseInt(firstHalfParts[0]), Integer.parseInt(firstHalfParts[1]), Integer.parseInt(secondHalfParts[0]), Integer.parseInt(secondHalfParts[1])) : calculateAmountOfAllOverlaps(Integer.parseInt(firstHalfParts[0]), Integer.parseInt(firstHalfParts[1]), Integer.parseInt(secondHalfParts[0]), Integer.parseInt(secondHalfParts[1]));
-
+            points += part.equals("part1") ? calculateAmountOfOverlap(Integer.parseInt(firstHalf[0]), Integer.parseInt(firstHalf[1]), Integer.parseInt(secondHalf[0]), Integer.parseInt(secondHalf[1])) : calculateAmountOfAllOverlaps(Integer.parseInt(firstHalf[0]), Integer.parseInt(firstHalf[1]), Integer.parseInt(secondHalf[0]), Integer.parseInt(secondHalf[1]));
         }
         return points;
     }
